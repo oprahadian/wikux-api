@@ -13,4 +13,6 @@ const (
 	SqlInsertUser = `INSERT INTO user(email, password, is_active, fullname, reg_date)
 						VALUES(?, sha(?), ?, ?, current_timestamp)`
 
+	SqlUserPermissionList = `select * from user_permission where user_id=?`
+
 )

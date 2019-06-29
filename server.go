@@ -20,6 +20,7 @@ func main() {
 
 	func(){
 		rg := r.Group("/User")
+		rg.GET("/PermissionList", handler.UserPermissionList)
 		rg.POST("/LoginCheck", handler.UserLoginCheck)
 		rg.POST("/ForgotPassword", handler.UserForgotPassword)
 		rg.POST("/Registration", handler.UserRegistration)

@@ -108,9 +108,41 @@ func UserForgotPassword(c *gin.Context) {
 	}
 }
 
+func UserPermissionList(c *gin.Context) {
+	var (
+		p db.UserPermission
+		pl []db.UserPermission
+		err error
+	)
+
+	if err = c.BindJSON(&p); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"status": false,
+			"message": err.Error(),
+		})
+
+		return
+	}
+
+	if err = db.Wikufest.Select(&pl, db.SqlUserPermissionList, p.UserId); err != nil {
+		c.JSON(http.StatusNotFound, gin.H{
+			"status": false,
+			"message": err.Error(),
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"status": true,
+			"message": nil,
+			"data": pl,
+		})
+	}
+}
+
 func UserLoginCheck(c *gin.Context) {
-	var ul db.UserLogin
-	var err error
+	var (
+		ul db.UserLogin
+		err error
+	)
 
 	if err = c.BindJSON(&ul); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{

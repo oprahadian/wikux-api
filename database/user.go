@@ -13,3 +13,9 @@ type UserLogin struct {
 	RegDate string `json:"regDate" db:"reg_date"`
 	UpdDate sql.NullString`json:"regDate" db:"upd_date"`
 }
+
+
+type UserPermission struct {
+	UserId int64 `json:"userId" db:"user_id"`
+	Permission string `json:"permission" db:"permission"`
+}
