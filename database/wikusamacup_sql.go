@@ -15,6 +15,10 @@ const (
 			(position_name, team_member_id, sport_team_id, reg_date)
 			VALUES(?, ?, ?, current_timestamp)`
 
+	SqlWikusamacupSportTeamMemberList = `select u.id user_id, u.fullname,tm.position_name, tm.sport_team_id FROM sport_team_member tm
+										left join user u on (tm.team_member_id = u.id)
+											where sport_team_id=?`
+
 	SqlWikusamacupSportTeamMemberScoreCreate = `INSERT INTO sport_team_member_score
 			(sport_team_match_id, sport_team_member_id, score, reg_date)
 			VALUES(?, ?, ?, current_timestamp)`

@@ -6,6 +6,13 @@ import (
 	"net/http"
 )
 
+type sportTeamMemberList struct {
+	UserId int64 `json:"userId" db:"user_id"`
+	Fullname string `json:"fulllname" db:"fullname"`
+	PositionName string `json:"positionName" db:"position_name"`
+	SportTeamId int64 `json:"sportTeamId" db:"sport_team_id"`
+}
+
 func WikusamacupSportTeamMatchScoreList(c *gin.Context){
 	var (
 		s []db.WikusamacupSportTeamMatchScore
@@ -92,6 +99,38 @@ func WikusamacupSportTeamMemberCreate(c *gin.Context){
 			"status": true,
 			"message": nil,
 			"data": m,
+		})
+	}
+}
+
+func WikusamacupSportTeamMemberList(c *gin.Context){
+	var (
+		m sportTeamMemberList
+		ms []sportTeamMemberList
+		err error
+	)
+
+	if err = c.BindJSON(&m); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"status": false,
+			"message": err.Error(),
+		})
+
+		return
+	}
+
+	err = db.Wikufest.Select(&ms, db.SqlWikusamacupSportTeamMemberList, m.SportTeamId)
+
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+		"status": false,
+		"message": err.Error(),
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"status": true,
+			"message": nil,
+			"data": ms,
 		})
 	}
 }

@@ -325,6 +325,40 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:10080/Wikusamacup/SportTeamMemberList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"sportTeamId\":1}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/Wikusamacup/SportTeamMemberList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Wikusamacup",
+						"SportTeamMemberList"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
