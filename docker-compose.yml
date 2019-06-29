@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  api:
+    container_name: wikux-api
+    image: golang:latest
+    command: sleep infinity
+    volumes:
+      - .:/go/src/wikux-api
+    ports:
+      - 0.0.0.0:10080:10080
+    environment:
+      WIKUX_PORT: 10080
+    links:
+      - db
+  db:
+    container_name: wikux-db
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: wKWpkFFdrqWd4Wae
+    ports:
+      - 0.0.0.0:3306:3306

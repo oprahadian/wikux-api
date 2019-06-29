@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "dce5cc9c-66e2-4fa8-9c67-c4f6293bf72c",
+		"name": "Wikux",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:10080/Service/SendEmail",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"to\":\"oprahadian@gmail.com\",\n\t\"subject\":\"Hello Today\",\n\t\"body\":\"<strong>Hello Today</strong> <hr />\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/Service/SendEmail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Service",
+						"SendEmail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/User/LoginCheck",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"oprahadian@gmail.com\", \"password\": \"password\"}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/User/LoginCheck",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"User",
+						"LoginCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/User/ForgotPassword",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"oprahadian@gmail.com\"}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/User/ForgotPassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"User",
+						"ForgotPassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/User/Registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"soprahadian@gmail.com\", \"password\": \"password\", \"isActive\": true}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/User/Registration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"User",
+						"Registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/Wikusama/WordpressPostList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"termId\": 1}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/Wikusama/WordpressPostList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Wikusama",
+						"WordpressPostList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/Wikusamacup/SportList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:10080/Wikusamacup/SportList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Wikusamacup",
+						"SportList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/Wikusamacup/SportTeamCreate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"teamName\": \"Team Biru\", \"personInChargeId\": 1, \"sportId\": 1, \"isActive\": true}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/Wikusamacup/SportTeamCreate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Wikusamacup",
+						"SportTeamCreate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/Wikusamacup/SportTeamMatchCreate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"sportTeamHomeId\": 2, \"sportTeamAwayId\": 1, \"startDate\": \"2019-07-05 07:00:00\", \"endDate\": \"2019-07-05 09:00:00\", \"isActive\": true}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/Wikusamacup/SportTeamMatchCreate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Wikusamacup",
+						"SportTeamMatchCreate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/Wikusamacup/SportTeamMemberCreate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"positionName\":\"Captain\", \"teamMemberId\": 1, \"sportTeamId\": 2}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/Wikusamacup/SportTeamMemberCreate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Wikusamacup",
+						"SportTeamMemberCreate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/Wikusamacup/SportTeamMemberScoreCreate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/javascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"sportTeamMatchId\": 1, \"sportTeamMemberId\": 1, \"score\": 1}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/Wikusamacup/SportTeamMemberScoreCreate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Wikusamacup",
+						"SportTeamMemberScoreCreate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/Wikusamacup/SportTeamMatchScoreList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:10080/Wikusamacup/SportTeamMatchScoreList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Wikusamacup",
+						"SportTeamMatchScoreList"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
