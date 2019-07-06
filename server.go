@@ -38,6 +38,8 @@ func main() {
 		rg.GET("/SportList", handler.WikusamacupSportList)
 		rg.GET("/SportTeamMatchScoreList", handler.WikusamacupSportTeamMatchScoreList)
 		rg.GET("/SportTeamMemberList", handler.WikusamacupSportTeamMemberList)
+		rg.GET("/SportTeamMatchScoreByMatchIdList", handler.WikusamacupSportTeamMatchScoreByMatchIdList)
+		rg.POST("/SportCreate", handler.WikusamacupSportCreate)
 		rg.POST("/SportTeamCreate", handler.WikusamacupSportTeamCreate)
 		rg.POST("/SportTeamMatchCreate", handler.WikusamacupSportTeamMatchCreate)
 		rg.POST("/SportTeamMemberCreate", handler.WikusamacupSportTeamMemberCreate)

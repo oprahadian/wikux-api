@@ -42,7 +42,7 @@ CREATE TABLE public.app_user (
     password character varying(255),
     fullname character varying(255),
     email character varying(255),
-    reg_date timestamp without time zone,
+    created_date timestamp without time zone,
     is_active boolean,
     class_name character varying(50)
 );
@@ -83,8 +83,8 @@ CREATE TABLE public.course (
     description text,
     additional_link text,
     is_active boolean,
-    reg_date timestamp without time zone,
-    upd_date timestamp without time zone
+    created_date timestamp without time zone,
+    updated_date timestamp without time zone
 );
 
 
@@ -126,8 +126,8 @@ CREATE TABLE public.course_session (
     start_time timestamp without time zone,
     end_time timestamp without time zone,
     is_active boolean,
-    reg_date timestamp without time zone,
-    upd_date timestamp without time zone
+    created_date timestamp without time zone,
+    updated_date timestamp without time zone
 );
 
 
@@ -140,7 +140,7 @@ ALTER TABLE public.course_session OWNER TO wiku;
 CREATE TABLE public.course_session_enrollment (
     course_session_id integer,
     app_user_id integer,
-    reg_date timestamp without time zone
+    created_date timestamp without time zone
 );
 
 
@@ -190,7 +190,7 @@ CREATE TABLE public.data_peserta_wikufest_2018 (
     email character varying(100),
     password character varying(100),
     fullname character varying(100),
-    reg_date character varying(100),
+    created_date character varying(100),
     is_active character varying(100),
     class_name character varying(100)
 );
@@ -208,8 +208,8 @@ CREATE TABLE public.user_coupon (
     coupon_name character varying(50),
     coupon_code character varying(100),
     is_redeemed boolean,
-    reg_date timestamp without time zone,
-    upd_date timestamp without time zone
+    created_date timestamp without time zone,
+    updated_date timestamp without time zone
 );
 
 

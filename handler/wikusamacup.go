@@ -50,7 +50,7 @@ func WikusamacupSportTeamMemberScoreCreate(c *gin.Context){
 		return
 	}
 
-	r, err := db.Wikufest.Exec(db.SqlWikusamacupSportTeamMemberScoreCreate, s.SportTeamMatchId, s.SportTeamMemberId, s.Score)
+	r, err := db.Wikufest.Exec(db.SqlWikusamacupSportTeamMemberScoreCreate, s.SportTeamMatchId, s.SportTeamMemberId, s.Score, s.ScoreDate)
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -223,5 +223,68 @@ func WikusamacupSportList(c *gin.Context){
 			"data": s,
 		})
 	}
+}
 
+func WikusamacupSportCreate(c *gin.Context){
+	var (
+		s db.WikusamacupSport
+		err error
+	)
+
+	if err = c.BindJSON(&s); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"status": false,
+			"message": err.Error(),
+		})
+
+		return
+	}
+
+	r, err := db.Wikufest.Exec(db.SqlWikusamacupSportCreate, s.Name, s.IsActive)
+	
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"status": false,
+			"message": err.Error(),
+		})
+	} else {
+		id, _  := r.LastInsertId()
+		s.Id = id
+
+		c.JSON(http.StatusOK, gin.H{
+			"status": true,
+			"message": nil,
+			"data": s,
+		})
+	}
+}
+
+func WikusamacupSportTeamMatchScoreByMatchIdList(c *gin.Context){
+	var (
+		p db.WikusamacupSportTeamMatchScoreByMatchId
+		s []db.WikusamacupSportTeamMatchScoreByMatchId
+		err error
+	)
+
+	if err = c.BindJSON(&p); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"status": false,
+			"message": err.Error(),
+		})
+
+		return
+	}
+
+	if err = db.Wikufest.Select(&s, db.SqlWikusamacupSportTeamMatchScoreByMatchIdList, p.SportTeamMatchId); err != nil {
+		c.JSON(http.StatusNotFound, gin.H{
+			"status": false,
+			"message": err.Error(),
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"status": true,
+			"message": nil,
+			"data": s,
+		})
+	}
 }

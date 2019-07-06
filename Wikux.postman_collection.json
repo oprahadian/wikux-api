@@ -111,7 +111,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\": \"soprahadian@gmail.com\", \"password\": \"password\", \"isActive\": true}"
+					"raw": "{\"email\": \"oprahadian@gmail.com\", \"password\": \"password\", \"isActive\": true}"
 				},
 				"url": {
 					"raw": "http://localhost:10080/User/Registration",
@@ -389,6 +389,64 @@
 					"path": [
 						"User",
 						"PermissionList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/Wikusamacup/SportCreate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"isActive\": true, \"name\": \"Football\"}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/Wikusamacup/SportCreate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Wikusamacup",
+						"SportCreate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10080/Wikusamacup/SportTeamMatchScoreByMatchIdList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"sportTeamMatchId\": 3}"
+				},
+				"url": {
+					"raw": "http://localhost:10080/Wikusamacup/SportTeamMatchScoreByMatchIdList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10080",
+					"path": [
+						"Wikusamacup",
+						"SportTeamMatchScoreByMatchIdList"
 					]
 				}
 			},

@@ -10,8 +10,8 @@ type UserLogin struct {
 	Fullname string `json:"fullname" db:"fullname"`
 	Email string `json:"email" db:"email"`
 	IsActive bool `json:"isActive" db:"is_active"`
-	RegDate string `json:"regDate" db:"reg_date"`
-	UpdDate sql.NullString`json:"regDate" db:"upd_date"`
+	CreatedDate string `json:"createdDate" db:"created_date"`
+	UpdatedDate sql.NullString`json:"updatedDate" db:"updated_date"`
 }
 
 

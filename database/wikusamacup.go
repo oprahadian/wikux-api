@@ -3,6 +3,7 @@ package database
 type WikusamacupSport struct {
 	Id int64 `json:"id" db:"id"`
 	Name string `json:"name" db:"name"`
+	IsActive bool `json:"isActive" db:"is_active"`
 }
 
 type WikusamacupSportTeam struct {
@@ -10,7 +11,7 @@ type WikusamacupSportTeam struct {
 	TeamName string `json:"teamName" db:"team_name"`
 	PersonInChargeId int64 `json:"personInChargeId" db:"person_in_charge_id"`
 	SportId int64 `json:"sportId" db:"sport_id"`
-	RegDate string `json:"regDate" db:"reg_date"`
+	CreatedDate string `json:"createdDate" db:"created_date"`
 	IsActive bool `json:"isActive" db:"is_active"`
 }
 
@@ -21,7 +22,7 @@ type WikusamacupSportTeamMatch struct {
 	StartDate string `json:"startDate" db:"start_date"`
 	EndDate string `json:"endDate" db:"end_date"`
 	IsActive bool `json:"isActive" db:"is_active"`
-	RegDate string `json:"regDate" db:"reg_date"`
+	CreatedDate string `json:"createdDate" db:"created_date"`
 }
 
 type WikusamacupSportTeamMember struct {
@@ -29,7 +30,7 @@ type WikusamacupSportTeamMember struct {
 	PositionName string `json:"positionName" db:"position_name"`
 	TeamMemberId  int64`json:"teamMemberId" db:"team_member_id"`
 	SportTeamId  int64`json:"sportTeamId" db:"sport_team_id"`
-	RegDate string `json:"regDate" db:"reg_date"`
+	CreatedDate string `json:"createdDate" db:"created_date"`
 }
 
 type WikusamacupSportTeamScore struct {
@@ -37,7 +38,8 @@ type WikusamacupSportTeamScore struct {
 	SportTeamMatchId int64 `json:"sportTeamMatchId" db:"sport_team_match_id"`
 	SportTeamMemberId int64 `json:"sportTeamMemberId" db:"sport_team_member_id"`
 	Score int `json:"score" db:"score"`
-	RegDate string `json:"regDate" db:"reg_date"`
+	ScoreDate string `json:"scoreDate" db:"score_date"`
+	CreatedDate string `json:"createdDate" db:"created_date"`
 }
 
 type WikusamacupSportTeamMatchScore struct {
@@ -48,4 +50,14 @@ type WikusamacupSportTeamMatchScore struct {
 	SportTeamAwayName string `json:"sportTeamAwayName" db:"sport_team_away_name"`
 	ScoreTeamHome int  `json:"scoreTeamHome" db:"score_team_home"`
 	ScoreTeamAway int  `json:"scoreTeamAway" db:"score_team_away"`
+}
+
+type WikusamacupSportTeamMatchScoreByMatchId struct {
+	SportTeamMatchId int64 `json:"sportTeamMatchId" db:"sport_team_match_id"`
+	Fullname string `json:"fullname" db:"fullname"`
+	SportTeamId int64 `json:"sportTeamId" db:"sport_team_id"`
+	SportTeamName string `json:"sportTeamName" db:"sport_team_name"`
+	Score int `json:"score" db:"score"`
+	ScoreDate string `json:"scoreDate" db:"score_date"`
+	ScoreMinuteFromStart int `json:"scoreMinuteFromStart" db:"score_minute_from_start"`
 }
