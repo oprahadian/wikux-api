@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  api-alpine:
+    container_name: wikux-api-production
+    build:
+      context: .
+      dockerfile: wikux-api.alpine.Dockerfile
+    ports:
+      - 0.0.0.0:8080:8080
+    environment:
+      WIKUX_HTTP_PORT: 8080
+      WIKUX_DB_HOST: 
+      WIKUX_DB_USER: 
+      WIKUX_DB_PASSWORD: 
+      WIKUX_DB_MAXOPENCONS: 
+      WIKUX_DB_MAXIDLECONS: 
+      WIKUX_SMTP_HOST: 
+      WIKUX_SMTP_USER: 
+      WIKUX_SMTP_PASSWORD: 
+      GIN_MODE: release

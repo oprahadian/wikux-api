@@ -15,3 +15,10 @@
 vendor/
 
 config/config.local.go
+
+docker-compose.alpine.local.yml
+
+docker-compose.alpine.production.yml
+
+docker-compose.local.yml
+

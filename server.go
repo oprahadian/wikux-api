@@ -5,9 +5,22 @@ import (
 	"wikux-api/database"
 	"wikux-api/handler"
 	"wikux-api/config"
+	"wikux-api/command"
+	"flag"
 )
 
 func main() {
+
+	var commandStr string
+	flag.StringVar(&commandStr, "command", "default", "run command")
+	flag.Parse()
+
+	switch commandStr {
+	case "send-email-pembayaran":
+		command.CommandSendEmailPembayaran()
+		return
+	}
+
 	database.InitDB()
 	
 	r := gin.Default()
@@ -55,5 +68,6 @@ func main() {
 		rg := r.Group("/Service")
 		rg.POST	("/SendEmail", handler.ServiceSendEmail)
 	}()
+	
 	r.Run("0.0.0.0:" + config.HttpPort)
 }
