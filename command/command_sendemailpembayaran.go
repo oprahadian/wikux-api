@@ -57,6 +57,7 @@ func CommandSendEmailPembayaran(){
 			[]string{},
 			[]string{},
 			"Konfirmasi Pesanan", 
-			tplBuffer.String()})
+			tplBuffer.String(), 
+			""})
 	}
 }

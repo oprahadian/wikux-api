@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Wikufest Connect 2019 - Ticket</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css" media="screen,projection">
+        .icon-block {
+            padding: 0 15px;
+        }
+        .icon-block .material-icons {
+            font-size: inherit;
+        }
+        .light-wikufest-2019.lighten-1 {
+            background-color: #384936 !important;
+        }
+
+        .wikufest-text {
+            color: #E3C325 !important;
+        }
+  </style>
+</head>
+<body>
+
+        <nav style="height:55px;" class="light-wikufest-2019 lighten-1" role="navigation">
+                <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img style="height: 50px;" src="https://wikufest.org/assets/img/wf-logo-color.png"></a>
+                  <ul class="right hide-on-med-and-down">
+                    <li></li>
+                  </ul>
+            
+                  <ul id="nav-mobile" class="sidenav">
+                    <li></li>
+                  </ul>
+                </div>
+              </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center wikufest-text">Your e-Ticket for Registration</h1>
+      <div class="row center">
+        <h5 class="header col s12 light"><strong>Important:</strong> Please have this visible on your device when you check-in</h5>
+      </div>
+      <div class="row center">
+        <h4 class="header col s12 light"><strong id="name"></strong></h5>
+        <svg id="barcode"></svg>
+      </div>
+      <br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">access_time</i></h2>
+            <h5 class="center">When</h5>
+
+            <p class="light">Tuesday, 31 August 2019</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">person_pin</i></h2>
+            <h5 class="center">Check-in</h5>
+
+            <p class="light">
+                Registration time: 09:00am<br />
+                Registration area: Usmar Ismail Hall, Lobby Area
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">location_on</i></h2>
+            <h5 class="center">Location</h5>
+
+            <p class="light">
+                Jl. H. R. Rasuna Said Blok C No.22, RT.2/RW.5, Karet Kuningan, Kecamatan Setiabudi, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12940 <br />
+
+                Click for map link (<a href="https://g.co/kgs/vm1wyp">https://g.co/kgs/vm1wyp</a>)
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+  <!--  Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.0/JsBarcode.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.19.1/URI.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+  <script type="text/javascript">
+    (function($){
+        $(function(){
+            $('.sidenav').sidenav();
+        });
+    })(jQuery);
+
+    var uri = new URI();
+    var searchUri = uri.search(true); 
+    var secret = "wikufest connect 2019";
+
+    var ciphertext = CryptoJS.AES.encrypt('{"name": "", "id": 1}', secret).toString();
+    var ciphertextUrl = encodeURIComponent(ciphertext);
+
+    var decodedCipher = decodeURIComponent(searchUri.d)
+    var decrypted = CryptoJS.AES.decrypt(decodedCipher, secret);
+    var originalText = decrypted.toString(CryptoJS.enc.Utf8);
+    var data = JSON.parse(originalText);
+
+    $("#name").text(data.name);
+    JsBarcode("#barcode", data.id);
+  </script>  
+  </body>
+</html>

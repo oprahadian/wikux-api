@@ -10,6 +10,8 @@ import (
 	"net/smtp"
     "crypto/tls"
 	"wikux-api/config"
+	
+	"github.com/mailgun/mailgun-go"
 )
 
 type CommonSingleSendEmail struct {
@@ -17,12 +19,42 @@ type CommonSingleSendEmail struct {
 	Cc []string
 	Bcc []string
 	Subject string
-	Body string	
+	Body string
+	ReplyTo string
 }
 
 func CommonSendEmailConcurrent(se CommonSingleSendEmail, wg *sync.WaitGroup){
 	CommonSendEmail(se)
 	wg.Done()
+}
+
+func CommonSendEmailMailgun(se CommonSingleSendEmail){
+    mg := mailgun.NewMailgun("wikufest.org", "key-6d6f9daa4ef47799550035faceb455f7")
+
+    sender := "do-not-reply@wikufest.org"
+    subject := se.Subject
+    body := "Hello from Mailgun Go!"
+
+	message := mg.NewMessage(sender, subject, body, se.To)
+	message.SetHtml(se.Body)
+
+	for _, v := range se.Cc {
+		message.AddCC(v)
+	}
+
+	for _, v := range se.Bcc {
+		message.AddBCC(v)
+	}
+
+	message.SetReplyTo(se.ReplyTo)
+
+    resp, id, err := mg.Send(message)
+
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    fmt.Printf("ID: %s Resp: %s\n", id, resp)
 }
 
 func CommonSendEmail(se CommonSingleSendEmail){

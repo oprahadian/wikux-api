@@ -19,6 +19,9 @@ func main() {
 	case "send-email-pembayaran":
 		command.CommandSendEmailPembayaran()
 		return
+	case "send-email-eticket":
+		command.CommandSendEmailEticket()
+		return
 	}
 
 	database.InitDB()

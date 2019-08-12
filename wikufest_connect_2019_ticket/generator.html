@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Wikufest Connect 2019 - Ticket</title>
+</head>
+<body>
+  <!--  Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.19.1/URI.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+  <script type="text/javascript">
+   var users = [
+   {"name": "", "id": ""}
+   ];
+
+    var uri = new URI();
+    var searchUri = uri.search(true); 
+    var secret = "wikufest connect 2019";
+
+    var ciphertext = CryptoJS.AES.encrypt('{"name": "", "id": 1}', secret).toString();
+    var ciphertextUrl = encodeURIComponent(ciphertext);
+
+    var endText = "";
+    users.forEach(function(x){
+        var ciphertext = CryptoJS.AES.encrypt(JSON.stringify(x), secret).toString();
+        var ciphertextUrl = encodeURIComponent(ciphertext);
+        endText = endText + ciphertextUrl + "\n";
+        
+    })
+
+    console.log(endText)
+
+    // var decodedCipher = decodeURIComponent(searchUri.d)
+    // var decrypted = CryptoJS.AES.decrypt(decodedCipher, secret);
+    // var originalText = decrypted.toString(CryptoJS.enc.Utf8);
+    // var data = JSON.parse(originalText);
+
+    // $("#name").text(data.name);
+    // JsBarcode("#barcode", data.id);
+  </script>  
+  </body>
+</html>
