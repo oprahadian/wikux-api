@@ -29,7 +29,7 @@ func CommonSendEmailConcurrent(se CommonSingleSendEmail, wg *sync.WaitGroup){
 }
 
 func CommonSendEmailMailgun(se CommonSingleSendEmail){
-    mg := mailgun.NewMailgun("wikufest.org", "key-6d6f9daa4ef47799550035faceb455f7")
+    mg := mailgun.NewMailgun(config.MailgunDomain, config.MailgunPrivateKey)
 
     sender := "do-not-reply@wikufest.org"
     subject := se.Subject

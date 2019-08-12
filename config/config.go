@@ -19,5 +19,8 @@ var (
 	ServiceGmailUser = os.Getenv("WIKUX_SMTP_USER")
 	ServiceGmailPassword = os.Getenv("WIKUX_SMTP_PASSWORD")
 
+	MailgunDomain = os.Getenv("WIKUX_MAILGUN_DOMAIN")
+	MailgunPrivateKey = os.Getenv("WIKUX_MAILGUN_PRIVATE_KEY")
+
 	HttpPort = os.Getenv("WIKUX_HTTP_PORT")
 )
