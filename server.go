@@ -35,6 +35,16 @@ func main() {
 	})
 
 	func(){
+		rg := r.Group("/Wikuapps")
+		rg.GET("/UserDetail", handler.WikuappsUserDetail)
+		rg.GET("/SessionDetail", handler.WikuappsSessionDetail)
+		rg.POST("/CheckUser", handler.WikuappsCheckUser)
+		rg.POST("/UpdateUser", handler.WikuappsUpdateUser)
+		rg.POST("/Login", handler.WikuappsLogin)
+		rg.POST("/ForgotPassword", handler.WikuappsForgetPassword)
+	}()
+
+	func(){
 		rg := r.Group("/User")
 		rg.GET("/PermissionList", handler.UserPermissionList)
 		rg.POST("/LoginCheck", handler.UserLoginCheck)

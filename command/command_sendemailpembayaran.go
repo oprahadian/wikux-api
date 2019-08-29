@@ -61,6 +61,8 @@ func CommandSendEmailPembayaran(){
 	// </html>
 	// `
 
+	var emailTemplateStr = ``
+
 	var to = []EmailData{
 		EmailData{"", "", "", "",},}
 	

@@ -1,0 +1,50 @@
+#### Flow WikuApps ####:
+1. Splash Screen
+   # IF Backend UP -> Form Input Email
+   # IF Backend Down -> Pop-up info under maintenance
+2. Form Input Email
+   # Submit -> Backend send email 
+   # IF email sent OK -> Pop-up info (please check your inbox for login information) -> move to login page
+3. Login Page
+   # Input email & password
+   # Link forgot password and sign up
+4. Login Success
+   # Direct to Profile Page
+	# IF email already saved (on DB), user will be reconfirm for profile -> Confirm Button (submit)
+	# IF email is new (not saved on DB before), user must be fill all mandatory field on profile page
+5. Home Page
+   # Slide Banner
+   # Features
+   # Webview News (embed from wikusama.org)
+
+#### Kebutuhan API ####:
+1. User Data [GET]
+   # Input param: {email}
+   # Output param: {status (TRUE/FALSE), fullname (str), email (str), phone (str), generation (int 2 digits), graduateYear (int 4 digits), domicile (str), occupation (str), message (str)}
+
+2. User Data [POST]
+   # Input param: {email}
+   # Output param: {status (TRUE/FALSE)}
+   # Note: - IF email already registered, then update password and send it to their email (6 digit password autonumber)
+	   - IF email not registered, then insert email & password and send it to their email (6 digit password autonumber)
+
+3. Login [POST]
+   # Input param: {email, password}
+   # Output param: {sessionID, {userData}}
+   # Note: - IF TRUE, then send output from API User Data (API no. 1) + sessionID
+	   - IF FALSE, then send output false login
+
+4. Forgot Password [POST]
+   # Input param: {email}
+   # Output param: {status (TRUE/FALSE), message (str)}
+   # Note: message wording -> Please check your email for a new password
+
+5. Update Profile [POST]
+   # Input param: {fullname (str), email (str), phone (str), generation (int 2 digits), graduateYear (int 4 digits), domicile (str), occupation (str)}
+   # Output param: {status (TRUE/FALSE), fullname, email, phone, generation, graduateYear, domicile, occupation, message}
+   # Note: message wording -> Your profile has been updated
+
+Icon Assets:
+32 bottom menu (tab bar)
+64 bottom menu (tab bar)
+128 Features Icon

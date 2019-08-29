@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "8f4700ac-8b3d-414d-b80d-b4d0e953e3e5",
+		"name": "WikuAppsAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://0.0.0.0:10080/Wikuapps/UpdateUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1, \"fullname\": \"OKTA PURNAMA RAHADIAN\", \"phone\": \"087788669968\", \"generation\": 17, \"graduateYear\": 2011, \"domicile\": \"JAKARTA\", \"occupation\": \"-\"}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:10080/Wikuapps/UpdateUser",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "10080",
+					"path": [
+						"Wikuapps",
+						"UpdateUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://0.0.0.0:10080/Wikuapps/ForgotPassword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"oprahadian@gmail.com\"}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:10080/Wikuapps/ForgotPassword",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "10080",
+					"path": [
+						"Wikuapps",
+						"ForgotPassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://0.0.0.0:10080/Wikuapps/Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"oprahadian@gmail.com\", \"password\": \"303094\"}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:10080/Wikuapps/Login",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "10080",
+					"path": [
+						"Wikuapps",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://0.0.0.0:10080/Wikuapps/CheckUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"oprahadian@gmail.com\"}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:10080/Wikuapps/CheckUser",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "10080",
+					"path": [
+						"Wikuapps",
+						"CheckUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://0.0.0.0:10080/Wikuapps/UserDetail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"oprahadian@gmail.com\"}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:10080/Wikuapps/UserDetail",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "10080",
+					"path": [
+						"Wikuapps",
+						"UserDetail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://0.0.0.0:10080/Wikuapps/SessionDetail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"sessionId\": \"c93cb6d0-ca80-11e9-a8ea-0242ac150002\"}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:10080/Wikuapps/SessionDetail",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "10080",
+					"path": [
+						"Wikuapps",
+						"SessionDetail"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
