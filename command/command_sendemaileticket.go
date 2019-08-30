@@ -126,7 +126,8 @@ func CommandSendEmailEticket(){
 </html>
 	`
 	var to = []EmailData{
-		EmailData{"", "", "",},}
+			EmailData{"", "@gmail.com", "",},
+		}
 	
 	tpl, _ := template.New("email").Parse(emailTemplateStr)
 
@@ -139,11 +140,11 @@ func CommandSendEmailEticket(){
 
 		fmt.Println(t)
 
+		
 		common.CommonSendEmailMailgun(common.CommonSingleSendEmail{t.Email, 
 			[]string{},
-			[]string{"", "", "", ""},
-			"Pembayaran Berhasil - Early Bird Ticket Wikusama Festival Connect 2019", 
-			tplBuffer.String(),
-			""})
+			[]string{"@gmail.com", "@gmail.com", "@gmail.com"},
+			"Pembayaran Berhasil - Regular Ticket Wikusama Festival Connect 2019", 
+			tplBuffer.String(),""})
 	}
 }
